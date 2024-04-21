@@ -9,11 +9,11 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	acquire_target()
+	get_target()
 	global_position = global_position.lerp(target_position, 1.0 - exp(-delta * 10))
 
 
-func acquire_target():
+func get_target():
 	# Get player's current pos
 	var player_nodes = get_tree().get_nodes_in_group("player") # Get current scene tree
 	if player_nodes.size() > 0:
