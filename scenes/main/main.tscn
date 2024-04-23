@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://g62c32yain0u"]
+[gd_scene load_steps=9 format=3 uid="uid://g62c32yain0u"]
 
 [ext_resource type="PackedScene" uid="uid://b2u3668yp2qeo" path="res://scenes/manager/enemy_manager.tscn" id="1_2mb00"]
 [ext_resource type="PackedScene" uid="uid://cl408y8utp4pa" path="res://scenes/ui/arena_time_ui.tscn" id="1_56mlv"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://b6j7nd3iofy0u" path="res://resources/tileset.tres" id="1_jw2qp"]
 [ext_resource type="PackedScene" uid="uid://cuh5qhes4bes7" path="res://scenes/game_object/game_camera/game_camera.tscn" id="1_kp14o"]
 [ext_resource type="PackedScene" uid="uid://dxo0gts3yfhek" path="res://scenes/manager/arena_time_manager.tscn" id="2_wqvvo"]
+[ext_resource type="PackedScene" uid="uid://c07i26i2m5rr5" path="res://scenes/manager/experience_manager.tscn" id="4_05akq"]
 [ext_resource type="PackedScene" uid="uid://3crdilbirld" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="7_dptyv"]
 
 [node name="Main" type="Node"]
@@ -16,6 +17,8 @@ arena_time_manager = NodePath("../ArenaTimeManager")
 [node name="ArenaTimeManager" parent="." instance=ExtResource("2_wqvvo")]
 
 [node name="EnemyManager" parent="." instance=ExtResource("1_2mb00")]
+
+[node name="ExperienceManager" parent="." instance=ExtResource("4_05akq")]
 
 [node name="GameCamera" parent="." instance=ExtResource("1_kp14o")]
 
