@@ -1,9 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bita7m8hm0ahm"]
+[gd_scene load_steps=7 format=3 uid="uid://bita7m8hm0ahm"]
 
+[ext_resource type="PackedScene" uid="uid://bugl847vloyly" path="res://scenes/component/hitbox_component.tscn" id="1_8d8mt"]
 [ext_resource type="Texture2D" uid="uid://d4fam3lnqvfgo" path="res://scenes/ability/sword_ability/sword.png" id="1_ci7pr"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0srl"]
-size = Vector2(30, 30)
 
 [sub_resource type="Animation" id="Animation_lxk8p"]
 length = 0.001
@@ -34,13 +32,13 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
+"update": 0,
 "values": [true]
 }
 
@@ -88,13 +86,13 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("HitboxComponent/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.2, 0.4),
 "transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
+"update": 0,
 "values": [true, false, true]
 }
 
@@ -104,16 +102,10 @@ _data = {
 "swing": SubResource("Animation_t5v2a")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bwn8w"]
+size = Vector2(30, 30)
+
 [node name="SwordAbility" type="Node2D"]
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 0
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(15, 0)
-shape = SubResource("RectangleShape2D_t0srl")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -124,3 +116,10 @@ autoplay = "swing"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ci7pr")
 offset = Vector2(0, -4)
+
+[node name="HitboxComponent" parent="." instance=ExtResource("1_8d8mt")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(15, 0)
+shape = SubResource("RectangleShape2D_bwn8w")
+disabled = true
