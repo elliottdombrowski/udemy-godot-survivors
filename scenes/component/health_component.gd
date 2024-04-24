@@ -21,7 +21,7 @@ func check_death():
 	if current_health == 0:
 		died.emit()
 
-	# Owner is the node that consitutes the root of the scene this node exists in.
-	# In short - if this node is attached to a basic_enemy,
-	# that basic_enemy instance is the owner.
-	owner.queue_free()
+		# Owner is the node that consitutes the root of the scene this node exists in.
+		# In short - if this node is attached to a basic_enemy,
+		# that basic_enemy instance is the owner.
+		owner.queue_free()
